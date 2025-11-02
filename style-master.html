@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Master Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --surface: #f8fafc;
+        --card: #ffffff;
+        --border: #d4d4d8;
+        --border-strong: #a1a1aa;
+        --accent: #2563eb;
+        --accent-soft: rgba(37, 99, 235, 0.12);
+        --text: #111827;
+        --muted: #6b7280;
+        --shadow: 0 20px 45px -24px rgba(15, 23, 42, 0.45);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(160deg, #eef2ff 0%, #f8fafc 35%, #f8fafc 100%);
+        color: var(--text);
+      }
+
+      .page {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 32px 72px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.015em;
+      }
+
+      header .status-badge {
+        padding: 6px 14px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .main-card {
+        background: var(--card);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+      }
+
+      .top-nav {
+        display: flex;
+        gap: 6px;
+        padding: 14px 18px;
+        background: rgba(37, 99, 235, 0.08);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+        overflow-x: auto;
+      }
+
+      .top-nav button {
+        background: transparent;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .top-nav button.active,
+      .top-nav button:hover {
+        background: #ffffff;
+        color: var(--accent);
+        box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.35);
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        padding: 28px;
+      }
+
+      .section {
+        background: rgba(248, 250, 252, 0.65);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        border-radius: 20px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .section h2 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .field-grid {
+        display: grid;
+        gap: 16px 20px;
+      }
+
+      .field-grid.two-col {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+        font-size: 14px;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px 18px;
+      }
+
+      .meta-card {
+        background: rgba(255, 255, 255, 0.78);
+        border-radius: 16px;
+        padding: 18px;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        display: grid;
+        gap: 12px;
+      }
+
+      .meta-card strong {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 0 28px 28px;
+      }
+
+      .actions button {
+        border: none;
+        border-radius: 14px;
+        padding: 12px 20px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 16px 32px -16px rgba(37, 99, 235, 0.75);
+      }
+
+      .ghost {
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--accent);
+      }
+
+      .neutral {
+        background: rgba(15, 23, 42, 0.04);
+        color: var(--text);
+      }
+
+      .actions button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 18px -12px rgba(37, 99, 235, 0.45);
+      }
+
+      .aside-tabs {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .tab-button {
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.24);
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .tab-button.active,
+      .tab-button:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: rgba(37, 99, 235, 0.08);
+      }
+
+      .toggle {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+      }
+
+      .toggle input {
+        width: 18px;
+        height: 18px;
+      }
+
+      .sketch-placeholder {
+        border-radius: 16px;
+        border: 2px dashed rgba(148, 163, 184, 0.4);
+        min-height: 220px;
+        display: grid;
+        place-items: center;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 0 28px 36px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .footer .quick-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .chip {
+        background: rgba(37, 99, 235, 0.12);
+        color: var(--accent);
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      @media (max-width: 1100px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 28px 18px 48px;
+        }
+
+        .content {
+          padding: 22px;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div>
+          <h1>Style Master Entry</h1>
+          <p class="muted">Capture and manage production ready jewelry styles.</p>
+        </div>
+        <div class="status-badge">Draft • Auto-Saved 2 min ago</div>
+      </header>
+
+      <div class="main-card">
+        <nav class="top-nav">
+          <button class="active">Parameters</button>
+          <button>Masters</button>
+          <button>Transactions</button>
+          <button>Reports</button>
+          <button>AddOns</button>
+          <button>Window</button>
+          <button>Quit</button>
+        </nav>
+
+        <div class="content">
+          <section class="section">
+            <h2>General Details</h2>
+            <div class="field-grid two-col">
+              <div class="field">
+                <label for="styleNo">Style No.</label>
+                <input id="styleNo" name="styleNo" placeholder="Enter style code" />
+              </div>
+              <div class="field">
+                <label for="styleName">Style Name</label>
+                <input id="styleName" name="styleName" placeholder="Full style name" />
+              </div>
+              <div class="field">
+                <label for="designCategory">Design Category</label>
+                <select id="designCategory" name="designCategory">
+                  <option value="">Select category</option>
+                  <option>Ring</option>
+                  <option>Necklace</option>
+                  <option>Bracelet</option>
+                  <option>Earrings</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="size">Size</label>
+                <input id="size" name="size" placeholder="e.g., 6.5" />
+              </div>
+              <div class="field">
+                <label for="salesCategory">Sales Category</label>
+                <input id="salesCategory" name="salesCategory" placeholder="Category" />
+              </div>
+              <div class="field">
+                <label for="salesCategory2">Sales Category 2</label>
+                <input
+                  id="salesCategory2"
+                  name="salesCategory2"
+                  placeholder="Additional category"
+                />
+              </div>
+              <div class="field">
+                <label for="uom">Unit of Measure</label>
+                <select id="uom" name="uom">
+                  <option value="">Select UoM</option>
+                  <option>Pieces</option>
+                  <option>Grams</option>
+                  <option>Sets</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="bagPieces">Bag Pcs</label>
+                <input id="bagPieces" name="bagPieces" type="number" min="0" />
+              </div>
+              <div class="field">
+                <label for="designStage">Design Stage</label>
+                <select id="designStage" name="designStage">
+                  <option value="">Select stage</option>
+                  <option>Concept</option>
+                  <option>Prototype</option>
+                  <option>Production</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="designCode">Design Code</label>
+                <input id="designCode" name="designCode" placeholder="Internal code" />
+              </div>
+            </div>
+
+            <div class="field-grid two-col">
+              <div class="field">
+                <label for="prdDesc">Product Description</label>
+                <textarea
+                  id="prdDesc"
+                  name="prdDesc"
+                  rows="4"
+                  placeholder="Key highlights, materials, motifs"
+                ></textarea>
+              </div>
+              <div class="field">
+                <label for="prdSpec">Product Specification</label>
+                <textarea
+                  id="prdSpec"
+                  name="prdSpec"
+                  rows="4"
+                  placeholder="Technical specifications and dimensions"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="detail-grid">
+              <div class="field">
+                <label for="bomsz">BOM Size</label>
+                <input id="bomsz" name="bomsz" />
+              </div>
+              <div class="field">
+                <label for="holdingDesc">Holding Description</label>
+                <input id="holdingDesc" name="holdingDesc" />
+              </div>
+              <div class="field">
+                <label for="modelRef">Model Reference</label>
+                <input id="modelRef" name="modelRef" />
+              </div>
+              <div class="field">
+                <label for="modelWeight">Model Weight</label>
+                <input id="modelWeight" name="modelWeight" type="number" step="0.001" />
+              </div>
+              <div class="field">
+                <label for="modelWithRunner">Model Weight with Runner</label>
+                <input id="modelWithRunner" name="modelWithRunner" type="number" step="0.001" />
+              </div>
+              <div class="field">
+                <label for="silverModelWt">Silver Model Weight</label>
+                <input id="silverModelWt" name="silverModelWt" type="number" step="0.001" />
+              </div>
+              <div class="field">
+                <label for="castingPercentage">Casting %</label>
+                <input id="castingPercentage" name="castingPercentage" type="number" step="0.01" />
+              </div>
+              <div class="field">
+                <label for="bagRate">Bag Rate</label>
+                <input id="bagRate" name="bagRate" type="number" step="0.01" />
+              </div>
+            </div>
+
+            <div class="field-grid two-col">
+              <div class="field">
+                <label for="designedBy">Designed By</label>
+                <input id="designedBy" name="designedBy" placeholder="Designer name" />
+              </div>
+              <div class="field">
+                <label for="createdDate">Created Date</label>
+                <input id="createdDate" name="createdDate" type="date" />
+              </div>
+              <div class="field">
+                <label for="approvedBy">Approved By</label>
+                <input id="approvedBy" name="approvedBy" placeholder="Approver" />
+              </div>
+              <div class="field">
+                <label for="approvalDate">Approval Date</label>
+                <input id="approvalDate" name="approvalDate" type="date" />
+              </div>
+            </div>
+          </section>
+
+          <aside class="section">
+            <h2>Supplementary</h2>
+            <div class="meta-card">
+              <strong>Authentication</strong>
+              <div class="field">
+                <label for="password">Access Password</label>
+                <input id="password" name="password" type="password" placeholder="********" />
+              </div>
+              <div class="field">
+                <label for="validTill">Valid Until</label>
+                <input id="validTill" name="validTill" type="date" />
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="isValid" name="isValid" /> Valid Style
+              </label>
+            </div>
+
+            <div class="meta-card">
+              <strong>Linked References</strong>
+              <div class="aside-tabs">
+                <button class="tab-button active">General Info</button>
+                <button class="tab-button">CAD / UI Images</button>
+                <button class="tab-button">Lab Details</button>
+                <button class="tab-button">Analysis</button>
+                <button class="tab-button">Job Bags</button>
+                <button class="tab-button">Line Sketch</button>
+                <button class="tab-button">3D Image</button>
+              </div>
+            </div>
+
+            <div class="meta-card">
+              <strong>Visual Assets</strong>
+              <div class="sketch-placeholder">
+                Upload or drag & drop sketches, CAD files and 3D renders here
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="actions">
+          <button class="primary">Save Style</button>
+          <button class="ghost">Save &amp; Duplicate</button>
+          <button class="ghost">Copy To Bag</button>
+          <button class="neutral">Show QIM List</button>
+          <button class="neutral">Copy Summary</button>
+          <button class="neutral">Add To Bag</button>
+          <button class="neutral">Match Cad</button>
+          <button class="neutral">Validate</button>
+        </div>
+
+        <footer class="footer">
+          <span>Last modified by Anita Joseph • 24 Aug 2023 at 18:42</span>
+          <div class="quick-actions">
+            <span class="chip">Ctrl + S to save</span>
+            <span class="chip">Ctrl + Shift + D duplicate</span>
+            <span class="chip">Esc to exit</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
